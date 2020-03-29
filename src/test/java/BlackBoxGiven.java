@@ -55,32 +55,96 @@ public class BlackBoxGiven {
 
     Cart cart1;
     double cart1Expected;
+    Cart cart2;
+    double cart2Expected;
+    Cart cart3;
+    double cart3Expected;
+    Cart cart4;
+    double cart4Expected;
+    Cart cart5;
+    double cart5Expected;
 
 
     @org.junit.Before
     public void setUp() throws Exception {
 
-        // all carts should be set up like this
-
-        // cart created with an age 40 shopper
-        cart1 = createCart(40);
-        for (int i = 0; i < 2; i++) {
-            cart1.addItem(new Alcohol());
-        }
-        for(int i = 0; i < 3; i++) {
-            cart1.addItem(new Dairy());
-        }
-        for(int i = 0; i < 4; i++) {
-            cart1.addItem(new Meat());
-        }
 
         cart1Expected = 70.2;
+
+        cart2 = createCart(40);
+            for (int i = 0; i < 6; i++) {
+                cart2.addItem(new Produce());
+            }
+                cart2Expected = 10.80;
+
+        cart3 = createCart(40);
+        for (int i = 0; i < 5; i++) {
+            cart3.addItem(new Produce());
+
+        }
+        cart3Expected = 9.72;
+
+        cart4 = createCart(40);
+        for (int i = 0; i < 2; i++) {
+            cart4.addItem(new Produce());
+
+        }
+        cart4Expected = 4.32;
+
+        cart5 = createCart(40);
+        for (int i = 0; i < 3; i++) {
+            cart5.addItem(new Produce());
+
+        }
+        cart5Expected = 5.40;
     }
 
-    // sample test
+
+
+        //Test Case:
+        //
+        //Test whether the discount is applied to all groups of 3 produce items
+        //
+        //
+        //Amount is divisible by 3 and greater than 3
+
+        @Test
+        public void calcProduce1() throws UnderAgeException {
+            double amount = cart2.calcCost();
+            assertEquals(cart2Expected, amount, .01);
+        }
+
+    //Test Case:
+    //
+    //Test whether the discount is applied to all groups of 3 produce items
+    //
+    //
+    //Amount not divisible by 3 but greater than 3
+
     @Test
-    public void calcCostCart1() throws UnderAgeException {
-        double amount = cart1.calcCost();
-        assertEquals(cart1Expected, amount, .01);
+    public void calcProduce2() throws UnderAgeException {
+        double amount = cart3.calcCost();
+        assertEquals(cart3Expected, amount, .01);
     }
+    //Test Case:
+    //
+    //Test whether the discount is applied to all groups of 3 produce items
+    //
+    //
+    //Amount less than 3
+    @Test
+    public void calcProduce3() throws UnderAgeException {
+        double amount = cart4.calcCost();
+        assertEquals(cart4Expected, amount, .01);
+    }
+
+    @Test
+    public void calcProduce4() throws UnderAgeException {
+        double amount = cart5.calcCost();
+        assertEquals(cart5Expected, amount, .01);
+    }
+
+
+
+
 }
