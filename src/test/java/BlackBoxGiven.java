@@ -6,6 +6,7 @@ import main.java.Dairy;
 import main.java.Meat;
 import main.java.UnderAgeException;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -72,6 +73,7 @@ public class BlackBoxGiven {
 
 
 
+
     @org.junit.Before
     public void setUp() throws Exception {
 
@@ -103,22 +105,22 @@ public class BlackBoxGiven {
             cart5.addItem(new Produce());
 
         }
-        cart6Expected = 5.40;
+        cart5Expected = 5.40;
 
         cart6 = createCart(40);
-            cart5.addItem(new Alcohol());
+            cart6.addItem(new Alcohol());
 
-        cart6Expected = 5.40;
 
-        cart7 = createCart(40);
+
+        cart7 = createCart(21);
             cart7.addItem(new Alcohol());
 
-        cart7Expected = 5.40;
 
-        cart8 = createCart(40);
+
+        cart8 = createCart(20);
             cart8.addItem(new Alcohol());
 
-        cart8Expected = 5.40;
+
     }
 
 
@@ -171,10 +173,31 @@ public class BlackBoxGiven {
         assertEquals(cart5Expected, amount, .01);
     }
 
-    @Test
-    public void calcProduce4() throws UnderAgeException {
-        double amount = cart5.calcCost();
-        assertEquals(cart5Expected, amount, .01);
+    //Test Case: Test whether alcohol is able to be sold to users with certain ages
+    //
+    //
+    //Age > 21
+    @Test(expected = Test.None.class)
+    public void AlcoholAge1() throws UnderAgeException {
+        cart6.calcCost();
+
+    }
+    //Test Case: Test whether alcohol is able to be sold to users with certain ages
+    //
+    //
+    //Age == 21
+    @Test(expected = Test.None.class)
+    public void AlcoholAge2() throws UnderAgeException {
+        cart7.calcCost();
+    }
+
+    //Test Case: Test whether alcohol is able to be sold to users with certain ages
+    //
+    //
+    //Age < 21
+    @Test(expected = UnderAgeException.class)
+    public void AlcoholAge3() throws UnderAgeException {
+        cart8.calcCost();
     }
 
 
