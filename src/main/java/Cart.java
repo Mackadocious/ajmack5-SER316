@@ -27,14 +27,14 @@ public class Cart {
      * @return double totalCost
      * @throws UnderAgeException
      */
-    public double calcCost() throws UnderAgeException {
+    public double calcCost() throws main.java.UnderAgeException {
         return 0; //implement me, will be important for assignment 4 (nothing to do here for assignment 3)
     }
 
     // calculates how much was saved in the current shopping cart based on the deals, returns the saved amount
     // throws exception if alcohol is bought from underage person
     // TODO: Create node graph for this method in assign 4: create white box tests and fix the method, reach at least 98% coverage
-    public int Amount_saved() throws UnderAgeException {
+    public int Amount_saved() throws main.java.UnderAgeException {
         int subTotal = 0;
         int costAfterSavings = 0;
 

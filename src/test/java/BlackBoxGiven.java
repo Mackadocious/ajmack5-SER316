@@ -63,6 +63,13 @@ public class BlackBoxGiven {
     double cart4Expected;
     Cart cart5;
     double cart5Expected;
+    Cart cart6;
+    double cart6Expected;
+    Cart cart7;
+    double cart7Expected;
+    Cart cart8;
+    double cart8Expected;
+
 
 
     @org.junit.Before
@@ -96,7 +103,22 @@ public class BlackBoxGiven {
             cart5.addItem(new Produce());
 
         }
-        cart5Expected = 5.40;
+        cart6Expected = 5.40;
+
+        cart6 = createCart(40);
+            cart5.addItem(new Alcohol());
+
+        cart6Expected = 5.40;
+
+        cart7 = createCart(40);
+            cart7.addItem(new Alcohol());
+
+        cart7Expected = 5.40;
+
+        cart8 = createCart(40);
+            cart8.addItem(new Alcohol());
+
+        cart8Expected = 5.40;
     }
 
 
@@ -136,6 +158,17 @@ public class BlackBoxGiven {
     public void calcProduce3() throws UnderAgeException {
         double amount = cart4.calcCost();
         assertEquals(cart4Expected, amount, .01);
+    }
+    //Test Case:
+    //
+    //Test whether the discount is applied to all groups of 3 produce items
+    //
+    //
+    //Amount Exactly 3
+    @Test
+    public void calcProduce4() throws UnderAgeException {
+        double amount = cart5.calcCost();
+        assertEquals(cart5Expected, amount, .01);
     }
 
     @Test
