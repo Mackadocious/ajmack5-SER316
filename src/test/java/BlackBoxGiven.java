@@ -3,6 +3,7 @@ package test.java;
 import main.java.*;
 import main.java.Alcohol;
 import main.java.Dairy;
+import main.java.FrozenFood;
 import main.java.Meat;
 import main.java.UnderAgeException;
 import org.junit.Test;
@@ -54,8 +55,7 @@ public class BlackBoxGiven {
 
     // A sample Cart
 
-    Cart cart1;
-    double cart1Expected;
+
     Cart cart2;
     double cart2Expected;
     Cart cart3;
@@ -70,6 +70,14 @@ public class BlackBoxGiven {
     double cart7Expected;
     Cart cart8;
     double cart8Expected;
+    Cart cart9;
+    double cart9Expected;
+    Cart cart10;
+    double cart10Expected;
+    Cart cart11;
+    double cart11Expected;
+    Cart cart12;
+    double cart12Expected;
 
 
 
@@ -78,7 +86,7 @@ public class BlackBoxGiven {
     public void setUp() throws Exception {
 
 
-        cart1Expected = 70.2;
+
 
         cart2 = createCart(40);
             for (int i = 0; i < 6; i++) {
@@ -120,6 +128,36 @@ public class BlackBoxGiven {
         cart8 = createCart(20);
             cart8.addItem(new Alcohol());
 
+        cart9 = createCart(40);
+            cart9.addItem(new Alcohol());
+            cart9.addItem(new FrozenFood());
+            cart9Expected = 10.80;
+
+        cart10 = createCart(40);
+            for(int i = 0; i < 2; i++) {
+                cart10.addItem(new Alcohol());
+            }
+            cart10.addItem(new FrozenFood());
+            cart10Expected = 19.44;
+
+
+        cart11 = createCart(40);
+            for(int i = 0; i < 2; i++) {
+                cart11.addItem(new FrozenFood());
+            }
+            cart11.addItem(new Alcohol());
+            cart11Expected = 16.20;
+
+        cart12 = createCart(40);
+
+            cart12.addItem(new FrozenFood());
+            cart12.addItem(new Meat());
+            cart12.addItem(new Alcohol());
+            cart12Expected = 21.6;
+
+            //Alcohol price: 8
+            // Frozen food: 5
+            // Alcohol + frozen food = 10
 
     }
 
@@ -198,6 +236,28 @@ public class BlackBoxGiven {
     @Test(expected = UnderAgeException.class)
     public void AlcoholAge3() throws UnderAgeException {
         cart8.calcCost();
+    }
+
+    @Test
+    public void calcFrozenAlc1() throws UnderAgeException {
+        double amount = cart9.calcCost();
+        assertEquals(cart9Expected, amount, .01);
+    }
+
+    @Test
+    public void calcFrozenAlc2() throws UnderAgeException {
+        double amount = cart10.calcCost();
+        assertEquals(cart10Expected, amount, .01);
+    }
+    @Test
+    public void calcFrozenAlc3() throws UnderAgeException {
+        double amount = cart11.calcCost();
+        assertEquals(cart11Expected, amount, .01);
+    }
+    @Test
+    public void calcFrozenAlc4() throws UnderAgeException {
+        double amount = cart12.calcCost();
+        assertEquals(cart12Expected, amount, .01);
     }
 
 
