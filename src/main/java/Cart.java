@@ -29,6 +29,7 @@ public class Cart {
      */
     public double calcCost() throws UnderAgeException {
 
+
         int dairyCount = 0;
         int meatCount = 0;
         int produceCount = 0;
@@ -36,31 +37,40 @@ public class Cart {
         int frozencount = 0;
         int alcoholandFrozencount = 0;
         double total = 0;
-        for(int i = 0; i < this.cart.size(); i++){
+        for(int i = 0; i < cart.size(); i++){
 
-            if(cart.get(i).getClass().toString() == Produce.class.toString()){
-                produceCount++;
 
-            }else if(cart.get(i).getClass().toString() == Meat.class.toString()){
-                meatCount++;
 
-            }else if(cart.get(i).getClass().toString() == Produce.class.toString()){
-                produceCount++;
+           if(cart.get(i).getClass().toString().equals(Dairy.class.toString())){
+                dairyCount+=1;
 
-            }else if(cart.get(i).getClass().toString() == Alcohol.class.toString()){
-                alcoholcount++;
 
-            }else if(cart.get(i).getClass().toString() == FrozenFood.class.toString()){
+            }
+            if(cart.get(i).getClass().toString().equals(Meat.class.toString())){
+
+                meatCount+=1;
+
+        }
+
+            if(cart.get(i).getClass().toString().equals(Produce.class.toString())){
+                produceCount+=1;
+
+            }if(cart.get(i).getClass().toString().equals(Alcohol.class.toString())){
+                if(userAge < 21){
+                    throw new UnderAgeException("The User is not of age to purchase alcohol!");
+                }else {
+                    alcoholcount++;
+                }
+            }if(cart.get(i).getClass().toString().equals(FrozenFood.class.toString())){
                 frozencount++;
             }
 
 
         }
-        System.out.println("Fozen count: " + frozencount);
-        System.out.println("produce count: " + produceCount);
+
 
        total += dairyCount *  3;
-        total += meatCount * 20;
+        total += meatCount * 10;
 
         if(produceCount > 2) {
             int leftoverProduce = produceCount % 3;
@@ -86,7 +96,7 @@ public class Cart {
         total += alcoholandFrozencount * 10;
 
 
-        total = getTax(total, "AZ");
+        total += getTax(total, "AZ");
 
 
         return total;

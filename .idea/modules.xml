@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Code Spring 2020 given.iml" filepath="$PROJECT_DIR$/Code Spring 2020 given.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ajmack5-SER316.iml" filepath="$PROJECT_DIR$/ajmack5-SER316.iml" group="ajmack5-SER316" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ajmack5-SER316_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ajmack5-SER316_main.iml" group="ajmack5-SER316" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ajmack5-SER316_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ajmack5-SER316_test.iml" group="ajmack5-SER316" />
     </modules>
   </component>
 </project>
