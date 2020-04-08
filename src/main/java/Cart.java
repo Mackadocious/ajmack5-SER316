@@ -27,14 +27,75 @@ public class Cart {
      * @return double totalCost
      * @throws UnderAgeException
      */
-    public double calcCost() throws main.java.UnderAgeException {
-        return 0; //implement me, will be important for assignment 4 (nothing to do here for assignment 3)
+    public double calcCost() throws UnderAgeException {
+
+        int dairyCount = 0;
+        int meatCount = 0;
+        int produceCount = 0;
+        int alcoholcount = 0;
+        int frozencount = 0;
+        int alcoholandFrozencount = 0;
+        double total = 0;
+        for(int i = 0; i < this.cart.size(); i++){
+
+            if(cart.get(i).getClass().toString() == Produce.class.toString()){
+                produceCount++;
+
+            }else if(cart.get(i).getClass().toString() == Meat.class.toString()){
+                meatCount++;
+
+            }else if(cart.get(i).getClass().toString() == Produce.class.toString()){
+                produceCount++;
+
+            }else if(cart.get(i).getClass().toString() == Alcohol.class.toString()){
+                alcoholcount++;
+
+            }else if(cart.get(i).getClass().toString() == FrozenFood.class.toString()){
+                frozencount++;
+            }
+
+
+        }
+        System.out.println("Fozen count: " + frozencount);
+        System.out.println("produce count: " + produceCount);
+
+       total += dairyCount *  3;
+        total += meatCount * 20;
+
+        if(produceCount > 2) {
+            int leftoverProduce = produceCount % 3;
+            produceCount = ((produceCount - leftoverProduce) /3);
+            total += leftoverProduce * 2;
+            total += produceCount * 5;
+
+        }else{
+            total += produceCount * 2;
+        }
+
+        if(alcoholcount > 0 && frozencount > 0){
+            while(frozencount != 0 && alcoholcount != 0){
+                frozencount--;
+                alcoholcount--;
+                alcoholandFrozencount++;
+
+            }
+        }
+
+        total += frozencount * 5;
+        total += alcoholcount * 8;
+        total += alcoholandFrozencount * 10;
+
+
+        total = getTax(total, "AZ");
+
+
+        return total;
     }
 
     // calculates how much was saved in the current shopping cart based on the deals, returns the saved amount
     // throws exception if alcohol is bought from underage person
     // TODO: Create node graph for this method in assign 4: create white box tests and fix the method, reach at least 98% coverage
-    public int Amount_saved() throws main.java.UnderAgeException {
+    public int Amount_saved() throws UnderAgeException {
         int subTotal = 0;
         int costAfterSavings = 0;
 
