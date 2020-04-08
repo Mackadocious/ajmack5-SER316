@@ -96,7 +96,7 @@ public class Cart {
         total += alcoholandFrozencount * 10;
 
 
-        total += getTax(total, "AZ");
+        total = total + getTax(total, "AZ");
 
 
         return total;
@@ -118,7 +118,7 @@ public class Cart {
             subTotal += cart.get(i).getCost();
             costAfterSavings =costAfterSavings+cart.get(i).getCost();
 
-            if (cart.get(i).getClass().toString() == Produce.class.toString()) {
+            if (cart.get(i).getClass().toString().equals(Produce.class.toString())) {
                 produce_counter++;
 
                 if (produce_counter >= 3) {
@@ -126,20 +126,20 @@ public class Cart {
                     produce_counter = 0;
                 }
             }
-            else if (cart.get(i).getClass().toString()==Alcohol.class.toString()) {
+            else if (cart.get(i).getClass().toString().equals(Alcohol.class.toString())) {
                 alcoholCounter++;
                 if (userAge < 21) {
                     throw new UnderAgeException("The User is not of age to purchase alcohol!");
                 }
             }
-            else if (cart.get(i).getClass().toString() == FrozenFood.class.toString()) {
+            else if (cart.get(i).getClass().toString().equals(FrozenFood.class.toString())) {
                 frozenFoodCounter++;
             }
-            else if (cart.get(i).getClass().toString() == FrozenFood.class.toString())
+            else if (cart.get(i).getClass().toString().equals(FrozenFood.class.toString()))
                 dairyCounter++;
 
             if (alcoholCounter >= 1 && frozenFoodCounter >= 1) {
-                 costAfterSavings = costAfterSavings + 3;
+                 costAfterSavings = costAfterSavings - 3;
                  alcoholCounter--;
                  frozenFoodCounter--;
             }
@@ -153,18 +153,19 @@ public class Cart {
         double newTotal = 0;
         switch (twoLetterUSStateAbbreviation) {
             case "AZ":
-                newTotal = totalBT * .08;
+                newTotal =  totalBT * .08;
                 break;
             case "CA":
-                newTotal = totalBT * .09;
+                newTotal =  totalBT * .09;
                 break;
             case "NY":
-                newTotal = totalBT * .1;
+                newTotal =  totalBT * .1;
+                break;
             case "CO":
-                newTotal = totalBT * .07;
+                newTotal =  totalBT * .07;
                 break;
             default:
-                return totalBT;
+                return 0.00;
         }
         return newTotal;
     }
