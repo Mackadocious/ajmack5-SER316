@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 plugins {
     id "com.github.spotbugs" version "3.0.0"
+=======
+ plugins {
+   id "com.github.spotbugs" version "3.0.0"
+>>>>>>> StaticAnalysis
     id "checkstyle"
 }
 
@@ -34,6 +39,7 @@ test {
 apply plugin: 'checkstyle'
 checkstyle {
 //Keep checkstyle a little quieter
+<<<<<<< HEAD
     ignoreFailures = true
     showViolations = false
 }
@@ -47,6 +53,21 @@ tasks.withType(Checkstyle) {
 checkstyle {
     toolVersion = "8.8"
 }
+=======
+ignoreFailures = true
+ showViolations = false
+}
+
+ tasks.withType(Checkstyle) {
+  reports {
+     html.enabled = true
+     xml.enabled = false
+   }
+ }
+checkstyle {
+     toolVersion = "8.8"
+ }
+>>>>>>> StaticAnalysis
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -54,6 +75,7 @@ checkstyle {
 /////////////////////////////////////////////////////////////////////////
 // To generate an HTML report instead of XML
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
+<<<<<<< HEAD
     reports {
         xml.enabled = false
         html.enabled = true
@@ -63,3 +85,14 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
 spotbugs {
     toolVersion = '4.0.1'
 }
+=======
+   reports {
+     xml.enabled = false
+    html.enabled = true
+   }
+ }
+
+ spotbugs {
+     toolVersion = '4.0.1'
+ }
+>>>>>>> StaticAnalysis

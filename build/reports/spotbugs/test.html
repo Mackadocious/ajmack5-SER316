@@ -1,0 +1,399 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>SpotBugs Report</title>
+      <style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+
+		.tablerow0:hover, .tablerow1:hover {
+			background: #aaffaa;
+		}
+
+		.priority-1 {
+				color: red;
+				font-weight: bold;
+		}
+		.priority-2 {
+				color: orange;
+				font-weight: bold;
+		}
+		.priority-3 {
+				color: green;
+				font-weight: bold;
+		}
+		.priority-4 {
+				color: blue;
+				font-weight: bold;
+		}
+		</style>
+      <script type="text/javascript">
+			function toggleRow(elid) {
+				if (document.getElementById) {
+					element = document.getElementById(elid);
+					if (element) {
+						if (element.style.display == 'none') {
+							element.style.display = 'block';
+							//window.status = 'Toggle on!';
+						} else {
+							element.style.display = 'none';
+							//window.status = 'Toggle off!';
+						}
+					}
+				}
+			}
+		</script>
+   </head>
+   <body>
+      <h1>
+         <a href="https://spotbugs.github.io/">SpotBugs</a> Report</h1>
+      <h2>Project Information</h2>
+      <p>Project: 
+		root project 'ajmack5-SER316' (test)</p>
+      <p>SpotBugs version: 4.0.1</p>
+      <p>Code analyzed:</p>
+      <ul>
+         <li>C:\Users\alexm\OneDrive\Desktop\SER316\Assign3\Code\ajmack5-SER316\build\classes\java\test\cartTest.class</li>
+      </ul>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Metrics</h2>
+      <p>126 lines of code analyzed,
+	in 1 classes, 
+	in 1 packages.</p>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Metric</th>
+            <th align="right">Total</th>
+            <th align="right">Density*</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>High Priority Warnings</td>
+            <td align="right"/>
+            <td align="right">0.00</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>Medium Priority Warnings</td>
+            <td align="right">14</td>
+            <td align="right">111.11</td>
+         </tr>
+         <tr class="$totalClass">
+            <td>
+               <b>Total Warnings</b>
+            </td>
+            <td align="right">
+               <b>14</b>
+            </td>
+            <td align="right">
+               <b>111.11</b>
+            </td>
+         </tr>
+      </table>
+      <p>
+         <i>(* Defects per Thousand lines of non-commenting source statements)</i>
+      </p>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Contents</h2>
+      <ul>
+         <li>
+            <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+         </li>
+         <li>
+            <a href="#Details">Details</a>
+         </li>
+      </ul>
+      <h1>Summary</h1>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Warning Type</th>
+            <th align="right">Number</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+            </td>
+            <td align="right">1</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
+               <a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+            </td>
+            <td align="right">13</td>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <b>Total</b>
+            </td>
+            <td align="right">
+               <b>14</b>
+            </td>
+         </tr>
+      </table>
+      <h1>Warnings</h1>
+      <p>Click on a warning row to see full context information.</p>
+      <h2>
+         <a name="Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e14');">
+            <td>
+               <span class="priority-2">Nm</span>
+            </td>
+            <td>The class name cartTest doesn't start with an upper case letter</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e14" style="display: none;">
+                  <a href="#NM_CLASS_NAMING_CONVENTION">Bug type NM_CLASS_NAMING_CONVENTION (click for details)</a>
+                  <br/>In class cartTest<br/>At cartTest.java:[lines 13-206]</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_PERFORMANCE">Performance Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e23');">
+            <td>
+               <span class="priority-2">UrF</span>
+            </td>
+            <td>Unread field: cartTest.cart10Expected</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e23" style="display: none;">
+                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart10Expected<br/>At cartTest.java:[line 107]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e36');">
+            <td>
+               <span class="priority-2">UrF</span>
+            </td>
+            <td>Unread field: cartTest.cart11Expected</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e36" style="display: none;">
+                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart11Expected<br/>At cartTest.java:[line 115]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e49');">
+            <td>
+               <span class="priority-2">UrF</span>
+            </td>
+            <td>Unread field: cartTest.cart12Expected</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e49" style="display: none;">
+                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart12Expected<br/>At cartTest.java:[line 122]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e62');">
+            <td>
+               <span class="priority-2">UrF</span>
+            </td>
+            <td>Unread field: cartTest.cart2Expected</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e62" style="display: none;">
+                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart2Expected<br/>At cartTest.java:[line 51]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e75');">
+            <td>
+               <span class="priority-2">UrF</span>
+            </td>
+            <td>Unread field: cartTest.cart3Expected</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e75" style="display: none;">
+                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart3Expected<br/>At cartTest.java:[line 58]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e88');">
+            <td>
+               <span class="priority-2">UrF</span>
+            </td>
+            <td>Unread field: cartTest.cart4Expected</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e88" style="display: none;">
+                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart4Expected<br/>At cartTest.java:[line 65]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e101');">
+            <td>
+               <span class="priority-2">UrF</span>
+            </td>
+            <td>Unread field: cartTest.cart5Expected</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e101" style="display: none;">
+                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart5Expected<br/>At cartTest.java:[line 72]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e114');">
+            <td>
+               <span class="priority-2">UrF</span>
+            </td>
+            <td>Unread field: cartTest.cart9Expected</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e114" style="display: none;">
+                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart9Expected<br/>At cartTest.java:[line 100]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e127');">
+            <td>
+               <span class="priority-2">UuF</span>
+            </td>
+            <td>Unused field: cartTest.cart15Expected</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e127" style="display: none;">
+                  <a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart15Expected<br/>In cartTest.java</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e141');">
+            <td>
+               <span class="priority-2">UuF</span>
+            </td>
+            <td>Unused field: cartTest.cart6Expected</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e141" style="display: none;">
+                  <a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart6Expected<br/>In cartTest.java</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e154');">
+            <td>
+               <span class="priority-2">UuF</span>
+            </td>
+            <td>Unused field: cartTest.cart7Expected</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e154" style="display: none;">
+                  <a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart7Expected<br/>In cartTest.java</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e167');">
+            <td>
+               <span class="priority-2">UuF</span>
+            </td>
+            <td>Unused field: cartTest.cart8</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e167" style="display: none;">
+                  <a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart8<br/>In cartTest.java</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e180');">
+            <td>
+               <span class="priority-2">UuF</span>
+            </td>
+            <td>Unused field: cartTest.cart8Expected</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e180" style="display: none;">
+                  <a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+                  <br/>In class cartTest<br/>Field cartTest.cart8Expected<br/>In cartTest.java</p>
+            </td>
+         </tr>
+      </table>
+      <h1>
+         <a name="Details">Details</a>
+      </h1>
+      <h2>
+         <a name="NM_CLASS_NAMING_CONVENTION">NM_CLASS_NAMING_CONVENTION: Class names should start with an upper case letter</a>
+      </h2>
+
+  <p> Class names should be nouns, in mixed case with the first letter of each internal word capitalized. Try to keep your class names simple and descriptive. Use whole words-avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
+</p>
+
+    <h2>
+         <a name="URF_UNREAD_FIELD">URF_UNREAD_FIELD: Unread field</a>
+      </h2>
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+
+    <h2>
+         <a name="UUF_UNUSED_FIELD">UUF_UNUSED_FIELD: Unused field</a>
+      </h2>
+
+  <p> This field is never used.&nbsp; Consider removing it from the class.</p>
+
+    </body>
+</html>
