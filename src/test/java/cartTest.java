@@ -197,9 +197,11 @@ public class cartTest {
 
     @Test
     public void remove() throws UnderAgeException{
-            cart16.RemoveItem(cart16.cart.get(0));
+            //’SER316 TASK 2 SPOTBUGS FIX’ in all CAPS
+            cart16.removeItem(cart16.cart.get(0));
         assertEquals(0.0, cart16.calcCost(), .01);
-        cart16.RemoveItem(null);
+        //’SER316 TASK 2 SPOTBUGS FIX’ in all CAPS
+        cart16.removeItem(null);
         assertEquals(0.0, cart16.calcCost(), .01);
     }
 
