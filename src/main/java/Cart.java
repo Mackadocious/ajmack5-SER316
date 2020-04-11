@@ -28,7 +28,78 @@ public class Cart {
      * @throws UnderAgeException
      */
     public double calcCost() throws UnderAgeException {
-        return 0; //implement me, will be important for assignment 4 (nothing to do here for assignment 3)
+
+
+        int dairyCount = 0;
+        int meatCount = 0;
+        int produceCount = 0;
+        int alcoholcount = 0;
+        int frozencount = 0;
+        int alcoholandFrozencount = 0;
+        double total = 0;
+        for(int i = 0; i < cart.size(); i++){
+
+
+
+           if(cart.get(i).getClass().toString().equals(Dairy.class.toString())){
+                dairyCount+=1;
+
+
+            }
+            if(cart.get(i).getClass().toString().equals(Meat.class.toString())){
+
+                meatCount+=1;
+
+        }
+
+            if(cart.get(i).getClass().toString().equals(Produce.class.toString())){
+                produceCount+=1;
+
+            }if(cart.get(i).getClass().toString().equals(Alcohol.class.toString())){
+                if(userAge < 21){
+                    throw new UnderAgeException("The User is not of age to purchase alcohol!");
+                }else {
+                    alcoholcount++;
+                }
+            }if(cart.get(i).getClass().toString().equals(FrozenFood.class.toString())){
+                frozencount++;
+            }
+
+
+        }
+
+
+       total += dairyCount *  3;
+        total += meatCount * 10;
+
+        if(produceCount > 2) {
+            int leftoverProduce = produceCount % 3;
+            produceCount = ((produceCount - leftoverProduce) /3);
+            total += leftoverProduce * 2;
+            total += produceCount * 5;
+
+        }else{
+            total += produceCount * 2;
+        }
+
+        if(alcoholcount > 0 && frozencount > 0){
+            while(frozencount != 0 && alcoholcount != 0){
+                frozencount--;
+                alcoholcount--;
+                alcoholandFrozencount++;
+
+            }
+        }
+
+        total += frozencount * 5;
+        total += alcoholcount * 8;
+        total += alcoholandFrozencount * 10;
+
+
+        total = total + getTax(total, "AZ");
+
+
+        return total;
     }
 
     // calculates how much was saved in the current shopping cart based on the deals, returns the saved amount
@@ -47,7 +118,7 @@ public class Cart {
             subTotal += cart.get(i).getCost();
             costAfterSavings =costAfterSavings+cart.get(i).getCost();
 
-            if (cart.get(i).getClass().toString() == Produce.class.toString()) {
+            if (cart.get(i).getClass().toString().equals(Produce.class.toString())) {
                 produce_counter++;
 
                 if (produce_counter >= 3) {
@@ -55,20 +126,20 @@ public class Cart {
                     produce_counter = 0;
                 }
             }
-            else if (cart.get(i).getClass().toString()==Alcohol.class.toString()) {
+            else if (cart.get(i).getClass().toString().equals(Alcohol.class.toString())) {
                 alcoholCounter++;
                 if (userAge < 21) {
                     throw new UnderAgeException("The User is not of age to purchase alcohol!");
                 }
             }
-            else if (cart.get(i).getClass().toString() == FrozenFood.class.toString()) {
+            else if (cart.get(i).getClass().toString().equals(FrozenFood.class.toString())) {
                 frozenFoodCounter++;
             }
-            else if (cart.get(i).getClass().toString() == FrozenFood.class.toString())
+            else if (cart.get(i).getClass().toString().equals(FrozenFood.class.toString()))
                 dairyCounter++;
 
             if (alcoholCounter >= 1 && frozenFoodCounter >= 1) {
-                 costAfterSavings = costAfterSavings + 3;
+                 costAfterSavings = costAfterSavings - 3;
                  alcoholCounter--;
                  frozenFoodCounter--;
             }
@@ -82,18 +153,19 @@ public class Cart {
         double newTotal = 0;
         switch (twoLetterUSStateAbbreviation) {
             case "AZ":
-                newTotal = totalBT * .08;
+                newTotal =  totalBT * .08;
                 break;
             case "CA":
-                newTotal = totalBT * .09;
+                newTotal =  totalBT * .09;
                 break;
             case "NY":
-                newTotal = totalBT * .1;
+                newTotal =  totalBT * .1;
+                break;
             case "CO":
-                newTotal = totalBT * .07;
+                newTotal =  totalBT * .07;
                 break;
             default:
-                return totalBT;
+                return 0.00;
         }
         return newTotal;
     }
