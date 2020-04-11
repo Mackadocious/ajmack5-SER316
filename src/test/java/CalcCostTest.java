@@ -1,11 +1,18 @@
 package test.java;
 
 import main.java.*;
+import main.java.Alcohol;
+import main.java.FrozenFood;
+import main.java.Meat;
+import main.java.Produce;
+import main.java.UnderAgeException;
+import static org.junit.Assert.assertEquals;
+import main.java.UnderAgeException;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 
-public class calcCostTest {
+
+public class CalcCostTest {
 
     Cart cart2;
     double cart2Expected;
@@ -16,11 +23,8 @@ public class calcCostTest {
     Cart cart5;
     double cart5Expected;
     Cart cart6;
-    double cart6Expected;
     Cart cart7;
-    double cart7Expected;
     Cart cart8;
-    double cart8Expected;
     Cart cart9;
     double cart9Expected;
     Cart cart10;
@@ -31,12 +35,8 @@ public class calcCostTest {
     double cart12Expected;
 
 
-
-
     @org.junit.Before
     public void setUp() throws Exception {
-
-
 
 
         cart2 = new Cart(40);
@@ -70,10 +70,8 @@ public class calcCostTest {
         cart6.addItem(new Alcohol());
 
 
-
         cart7 = new Cart(21);
         cart7.addItem(new Alcohol());
-
 
 
         cart8 = new Cart(20);
@@ -85,7 +83,7 @@ public class calcCostTest {
         cart9Expected = 10.80;
 
         cart10 = new Cart(40);
-        for(int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++) {
             cart10.addItem(new Alcohol());
         }
         cart10.addItem(new FrozenFood());
@@ -93,7 +91,7 @@ public class calcCostTest {
 
 
         cart11 = new Cart(40);
-        for(int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++) {
             cart11.addItem(new FrozenFood());
         }
         cart11.addItem(new Alcohol());
@@ -111,7 +109,6 @@ public class calcCostTest {
         // Alcohol + frozen food = 10
 
     }
-
 
 
     //Test Case:
@@ -139,6 +136,7 @@ public class calcCostTest {
         double amount = cart3.calcCost();
         assertEquals(cart3Expected, amount, .01);
     }
+
     //Test Case:
     //
     //Test whether the discount is applied to all groups of 3 produce items
@@ -150,6 +148,7 @@ public class calcCostTest {
         double amount = cart4.calcCost();
         assertEquals(cart4Expected, amount, .01);
     }
+
     //Test Case:
     //
     //Test whether the discount is applied to all groups of 3 produce items
@@ -167,16 +166,17 @@ public class calcCostTest {
     //
     //Age > 21
     @Test(expected = Test.None.class)
-    public void AlcoholAge1() throws UnderAgeException {
+    public void alcoholAge1() throws UnderAgeException {
         cart6.calcCost();
 
     }
+
     //Test Case: Test whether alcohol is able to be sold to users with certain ages
     //
     //
     //Age == 21
     @Test(expected = Test.None.class)
-    public void AlcoholAge2() throws UnderAgeException {
+    public void alcoholAge2() throws UnderAgeException {
         cart7.calcCost();
     }
 
@@ -185,7 +185,7 @@ public class calcCostTest {
     //
     //Age < 21
     @Test(expected = UnderAgeException.class)
-    public void AlcoholAge3() throws UnderAgeException {
+    public void alcoholAge3() throws UnderAgeException {
         cart8.calcCost();
     }
 
@@ -200,17 +200,18 @@ public class calcCostTest {
         double amount = cart10.calcCost();
         assertEquals(cart10Expected, amount, .01);
     }
+
     @Test
     public void calcFrozenAlc3() throws UnderAgeException {
         double amount = cart11.calcCost();
         assertEquals(cart11Expected, amount, .01);
     }
+
     @Test
     public void calcFrozenAlc4() throws UnderAgeException {
         double amount = cart12.calcCost();
         assertEquals(cart12Expected, amount, .01);
     }
-
 
 
 }

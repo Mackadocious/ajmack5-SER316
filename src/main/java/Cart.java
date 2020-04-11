@@ -5,9 +5,14 @@ import java.util.List;
 
 public class Cart {
 
-    protected int userAge;
     public List<Product> cart;
-   //’SER316 TASK 2 SPOTBUGS FIX’ in all CAPS
+    protected int userAge;
+    //’SER316 TASK 2 SPOTBUGS FIX’ in all CAPS
+
+    public Cart(int age) {
+        userAge = age;
+        cart = new ArrayList<Product>();
+    }
 
     /**
      * Calculates the final cost after all savings and tax has been applied. Also checks
@@ -22,6 +27,7 @@ public class Cart {
      * Alcohol + Frozen Food -> $10
      * If there is an alcohol product in the cart and the user is under 21, then an
      * UnderAgeException should be thrown.
+     *
      * @return double totalCost
      * @throws UnderAgeException
      */
@@ -170,8 +176,8 @@ public class Cart {
         cart.add(np);
     }
 
- //’SER316 TASK 2 SPOTBUGS FIX’ in all CAPS
- public boolean removeItem(Product productToRemove) {
+    //’SER316 TASK 2 SPOTBUGS FIX’ in all CAPS
+    public boolean removeItem(Product productToRemove) {
         boolean test = false;
         for (int i = 0; i < cart.size(); i++) {
             if (cart.get(i) == productToRemove) {
@@ -181,10 +187,5 @@ public class Cart {
             }
         }
         return false;
-    }
-
-    public Cart(int age) {
-        userAge = age;
-        cart = new ArrayList<Product>();
     }
 }

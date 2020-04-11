@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CartTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2020-04-11T23:10:57" hostname="DESKTOP-KICOH3K" time="0.005">
+  <properties/>
+  <testcase name="DairySavings" classname="CartTest" time="0.003"/>
+  <testcase name="emptyCart" classname="CartTest" time="0.0"/>
+  <testcase name="remove" classname="CartTest" time="0.0"/>
+  <testcase name="FrozenFoodSavings" classname="CartTest" time="0.0"/>
+  <testcase name="taxCheck" classname="CartTest" time="0.0"/>
+  <testcase name="AlcandFrozenSavings" classname="CartTest" time="0.0"/>
+  <testcase name="produceCalcCost" classname="CartTest" time="0.0"/>
+  <testcase name="fullCart" classname="CartTest" time="0.0"/>
+  <testcase name="produceSavings" classname="CartTest" time="0.001"/>
+  <testcase name="AlcoholAge" classname="CartTest" time="0.0"/>
+  <testcase name="AlcoholAge2" classname="CartTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

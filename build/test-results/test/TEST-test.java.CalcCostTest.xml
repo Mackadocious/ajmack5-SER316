@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test.java.CalcCostTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2020-04-11T23:10:57" hostname="DESKTOP-KICOH3K" time="0.003">
+  <properties/>
+  <testcase name="calcProduce1" classname="test.java.CalcCostTest" time="0.001"/>
+  <testcase name="calcProduce2" classname="test.java.CalcCostTest" time="0.0"/>
+  <testcase name="calcProduce3" classname="test.java.CalcCostTest" time="0.0"/>
+  <testcase name="calcProduce4" classname="test.java.CalcCostTest" time="0.0"/>
+  <testcase name="alcoholAge1" classname="test.java.CalcCostTest" time="0.0"/>
+  <testcase name="alcoholAge2" classname="test.java.CalcCostTest" time="0.0"/>
+  <testcase name="alcoholAge3" classname="test.java.CalcCostTest" time="0.0"/>
+  <testcase name="calcFrozenAlc1" classname="test.java.CalcCostTest" time="0.0"/>
+  <testcase name="calcFrozenAlc2" classname="test.java.CalcCostTest" time="0.0"/>
+  <testcase name="calcFrozenAlc3" classname="test.java.CalcCostTest" time="0.0"/>
+  <testcase name="calcFrozenAlc4" classname="test.java.CalcCostTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
