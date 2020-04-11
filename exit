@@ -1,0 +1,65 @@
+[33mcommit 52d4be5d0637c6694325522f645c001c9577edca[m[33m ([m[1;36mHEAD -> [m[1;32mStaticAnalysis[m[33m, [m[1;31morigin/Whitebox[m[33m, [m[1;32mWhitebox[m[33m)[m
+Author: Alexander Mack <ajmack5@asu.edu>
+Date:   Tue Apr 7 23:54:52 2020 -0700
+
+    tests complete
+
+[33mcommit bbee7ca184d0d8a183cf1281d0eaae91466e3940[m
+Author: Alexander Mack <ajmack5@asu.edu>
+Date:   Tue Apr 7 23:53:32 2020 -0700
+
+    Auto stash before checking out "HEAD"
+
+[33mcommit a7e7dfe671407b0c6f3ded5e93c012bcb0f8be90[m
+Author: Alexander Mack <ajmack5@asu.edu>
+Date:   Tue Apr 7 20:53:25 2020 -0700
+
+    Passing calcCostTest
+
+[33mcommit 61722908711391908769a3686338a5309205a52b[m
+Author: Alexander Mack <ajmack5@asu.edu>
+Date:   Tue Apr 7 19:56:14 2020 -0700
+
+    Having issues with gradle
+
+[33mcommit bddf8b8df9e971609c7754787231ff3fa44b59be[m
+Author: Alexander Mack <ajmack5@asu.edu>
+Date:   Tue Apr 7 19:04:41 2020 -0700
+
+    Added testCart
+
+[33mcommit f6e54a07b2535ef19c192a7ec7d2d2fefaadd604[m[33m ([m[1;31morigin/Blackbox[m[33m, [m[1;32mBlackbox[m[33m)[m
+Author: Alexander Mack <ajmack5@asu.edu>
+Date:   Sun Mar 29 18:04:24 2020 -0700
+
+    Finished all testing for Unittest Assignment
+
+[33mcommit 87b1bd59fd21c8de37803bb1fc8347bcce7561b6[m
+Author: Alexander Mack <ajmack5@asu.edu>
+Date:   Sun Mar 29 16:18:34 2020 -0700
+
+    Added all tests for alcohol age tests
+
+[33mcommit b7e3f5719baf3660079a38398d6d437929c1ea66[m
+Author: Alexander Mack <ajmack5@asu.edu>
+Date:   Sun Mar 29 15:55:34 2020 -0700
+
+    Added methods for alcohol age testing
+
+[33mcommit e437e36bfc3978b20e00f250a9f397dd62eee6e4[m
+Author: Alexander Mack <ajmack5@asu.edu>
+Date:   Sun Mar 29 15:45:27 2020 -0700
+
+    Completed produce testing
+
+[33mcommit f7c54b266162c460f95586c32e0f8338d7aa9b1a[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Alexander Mack <ajmack5@asu.edu>
+Date:   Sun Mar 29 14:13:24 2020 -0700
+
+    First commit
+
+[33mcommit 4c7138a1912338611a1b41d0285a59616420bae5[m
+Author: Mackadocious <62216139+Mackadocious@users.noreply.github.com>
+Date:   Sun Mar 29 14:05:35 2020 -0700
+
+    Initial commit
