@@ -1,7 +1,7 @@
-// plugins {
-//     id "com.github.spotbugs" version "3.0.0"
-//     id "checkstyle"
-// }
+ plugins {
+   //id "com.github.spotbugs" version "3.0.0"
+    id "checkstyle"
+}
 
 apply plugin: 'application'
 apply plugin: 'jacoco'
@@ -26,10 +26,12 @@ test {
     exclude '**/BlackBoxGiven.class'
 }
 
-
+//////////////////////////////////
 //Configure Checkstyle
+///////////////////////////////////
 
- plugin: 'checkstyle'
+
+apply plugin: 'checkstyle'
 checkstyle {
 //Keep checkstyle a little quieter
 ignoreFailures = true
