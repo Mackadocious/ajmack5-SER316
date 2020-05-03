@@ -51,12 +51,6 @@ public class Cart {
 
 
 
-            if (cart.get(i).getClass().toString().equals(Meat.class.toString())) {
-
-                meatCount += 1;
-
-            }
-
             if (cart.get(i).getClass().toString().equals(Produce.class.toString())) {
                 produceCount += 1;
 
@@ -106,7 +100,7 @@ public class Cart {
     // calculates how much was saved in the current shopping cart based on the deals, returns the saved amount
     // throws exception if alcohol is bought from underage person
     // TODO: Create node graph for this method in assign 4: create white box tests and fix the method, reach at least 98% coverage
-    public int Amount_saved() throws UnderAgeException {
+    public int Amount_saved() throws main.java.UnderAgeException {
         int subTotal = 0;
         int costAfterSavings = 0;
 
@@ -137,9 +131,7 @@ public class Cart {
                 frozenFoodCounter--;
             }
 
-        if (userAge < 21 && alcoholCounter > 0) {
-            throw new UnderAgeException("The User is not of age to purchase alcohol!");
-        }
+
 
         return subTotal - costAfterSavings;
     }
@@ -174,7 +166,7 @@ public class Cart {
         return dairyProducts.size();
     }
 
-    int parseAlcoholProducts(List<Product> cart) {
+    int parseAlcoholProducts(List<Product> cart) throws main.java.UnderAgeException {
         ArrayList<Product> alcoholProducts = new ArrayList<>();
         for (int i = 0; i < cart.size(); i++) {
             if (cart.get(i).getClass().toString().equals(Alcohol.class.toString())) {
@@ -182,11 +174,8 @@ public class Cart {
             }
         }
         if (userAge < 21 && alcoholProducts.size() > 0){
-            try {
+
                 throw new main.java.UnderAgeException("The user is not of age to buy alcohol");
-            } catch (main.java.UnderAgeException e) {
-                e.printStackTrace();
-            }
         }
         return alcoholProducts.size();
     }
