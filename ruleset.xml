@@ -33,6 +33,13 @@
     </properties>
 </rule>
 <rule ref="category/java/bestpractices.xml/LooseCoupling" />
+<rule ref="category/java/design.xml/ImmutableField">
+    <properties>
+        <property name="ignoredAnnotations" value="lombok.Setter|lombok.Getter|lombok.Builder|lombok.Data|lombok.RequiredArgsConstructor|lombok.AllArgsConstructor|lombok.Value|lombok.NoArgsConstructor" />
+    </properties>
+</rule>
+
+
 
 
 </ruleset>
