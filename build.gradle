@@ -1,7 +1,13 @@
 // plugins {
-//     id "com.github.spotbugs" version "3.0.0"
-//     id "checkstyle"
+//   id "com.github.spotbugs" version "1.6.11"
 // }
+
+
+plugins {
+    id 'pmd'
+}
+
+
 
 apply plugin: 'application'
 apply plugin: 'jacoco'
@@ -12,23 +18,28 @@ mainClassName = 'main.java.Main'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    compile 'junit:junit:4.12'
+
+    compile "junit:junit:4.12"
     compile files('cls/')
-    implementation 'junit:junit:4.12'
 }
 
-test {
-    exclude '**/BlackBoxGiven.class'
+apply plugin: "pmd"
+pmd {
+  ignoreFailures = true 
+  sourceSets = [sourceSets.main]
+  reportsDir = file("$project.buildDir/reports/pmd")
+  ruleSets = []
+  ruleSetConfig = resources.text.fromFile('ruleset.xml')
 }
 
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 // Configure Checkstyle
-/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 // apply plugin: 'checkstyle'
 // checkstyle {
 //   // Keep checkstyle a little quieter
@@ -47,10 +58,15 @@ test {
 // }
 
 
-/////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 // Configure SpotBugs
-/////////////////////////////////////////////////////////////////////////
-// To generate an HTML report instead of XML
+///////////////////////////////////////////////////////////////////////////
+
+// spotbugs {
+//   toolVersion = '3.1.12'
+// }
+
+// // To generate an HTML report instead of XML
 // tasks.withType(com.github.spotbugs.SpotBugsTask) {
 //   reports {
 //     xml.enabled = false
