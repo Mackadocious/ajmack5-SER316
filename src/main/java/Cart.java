@@ -1,8 +1,14 @@
 package main.java;
 
-import java.util.ArrayList;
-import java.util.List;
+import main.java.Alcohol;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import main.java.FrozenFood;
+import main.java.Product;
 public class Cart {
 
     public List<Product> cart;
@@ -115,9 +121,10 @@ public class Cart {
         int costAfterSavings = 0;
 
         double produce_counter = 0;
-        int alcoholCounter = 0;
-        int frozenFoodCounter = 0;
-        int dairyCounter = 0;
+        int alcoholCounter = parseAlcoholProducts(cart);
+        int frozenFoodCounter = parseFrozenProducts(cart);
+        int dairyCounter = parseDairyProducts(cart);
+
 
         for (int i = 0; i < cart.size(); i++) {
             subTotal += cart.get(i).getCost();
@@ -130,46 +137,75 @@ public class Cart {
                     costAfterSavings -= 1;
                     produce_counter = 0;
                 }
-            } else if (cart.get(i).getClass().toString().equals(Alcohol.class.toString())) {
-                alcoholCounter++;
-                if (userAge < 21) {
-                    throw new UnderAgeException("The User is not of age to purchase alcohol!");
-                }
-            } else if (cart.get(i).getClass().toString().equals(FrozenFood.class.toString())) {
-                frozenFoodCounter++;
-            } else if (cart.get(i).getClass().toString().equals(FrozenFood.class.toString()))
-                dairyCounter++;
+            }
+
+        }
 
             if (alcoholCounter >= 1 && frozenFoodCounter >= 1) {
                 costAfterSavings = costAfterSavings - 3;
                 alcoholCounter--;
                 frozenFoodCounter--;
             }
+
+        if (userAge < 21 && alcoholCounter > 0) {
+            throw new UnderAgeException("The User is not of age to purchase alcohol!");
         }
 
         return subTotal - costAfterSavings;
     }
 
+      int parseFrozenProducts(List<Product> cart) {
+        ArrayList<Product> frozenFood = new ArrayList<>();
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).getClass().toString().equals(FrozenFood.class.toString())) {
+                frozenFood.add(cart.get(i));
+            }
+        }
+        return frozenFood.size();
+    }
+
+    int parseDairyProducts(List<Product> cart) {
+        ArrayList<Product> dairyProducts = new ArrayList<>();
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).getClass().toString().equals(main.java.Dairy.class.toString())) {
+                dairyProducts.add(cart.get(i));
+            }
+        }
+        return dairyProducts.size();
+    }
+
+    int parseAlcoholProducts(List<Product> cart) {
+        ArrayList<Product> alcoholProducts = new ArrayList<>();
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).getClass().toString().equals(Alcohol.class.toString())) {
+                alcoholProducts.add(cart.get(i));
+            }
+        }
+        return alcoholProducts.size();
+    }
+
+    Map<String, Double> createHashMap(){
+        HashMap<String, Double> taxes = new HashMap<String, Double>();
+        taxes.put("AZ", 0.08);
+        taxes.put("CA", 0.09);
+        taxes.put("NY", 0.1 );
+        taxes.put("CO", 0.07);
+        return taxes;
+    }
+
     // Gets the tax based on state and the total
     public double getTax(double totalBT, String twoLetterUSStateAbbreviation) {
+        Map<String, Double> taxes = createHashMap();
+
         double newTotal = 0;
-        switch (twoLetterUSStateAbbreviation) {
-            case "AZ":
-                newTotal = totalBT * .08;
-                break;
-            case "CA":
-                newTotal = totalBT * .09;
-                break;
-            case "NY":
-                newTotal = totalBT * .1;
-                break;
-            case "CO":
-                newTotal = totalBT * .07;
-                break;
-            default:
-                return 0.00;
+        if (taxes.containsKey(twoLetterUSStateAbbreviation)) {
+            newTotal = totalBT * taxes.get(twoLetterUSStateAbbreviation);
+            return newTotal;
+        } else {
+            return 0.00;
+
+
         }
-        return newTotal;
     }
 
     public void addItem(Product np) {
