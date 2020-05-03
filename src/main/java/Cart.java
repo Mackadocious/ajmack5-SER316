@@ -40,21 +40,17 @@ public class Cart {
     public double calcCost() throws UnderAgeException {
 
 
-        int dairyCount = 0;
-        int meatCount = 0;
+        int dairyCount = parseDairyProducts(cart);
+        int meatCount = parseMeatProducts(cart);
         int produceCount = 0;
-        int alcoholcount = 0;
+        int alcoholcount = parseAlcoholProducts(cart);
         int frozencount = 0;
         int alcoholandFrozencount = 0;
         double total = 0;
         for (int i = 0; i < cart.size(); i++) {
 
 
-            if (cart.get(i).getClass().toString().equals(Dairy.class.toString())) {
-                dairyCount += 1;
 
-
-            }
             if (cart.get(i).getClass().toString().equals(Meat.class.toString())) {
 
                 meatCount += 1;
@@ -65,13 +61,7 @@ public class Cart {
                 produceCount += 1;
 
             }
-            if (cart.get(i).getClass().toString().equals(Alcohol.class.toString())) {
-                if (userAge < 21) {
-                    throw new UnderAgeException("The User is not of age to purchase alcohol!");
-                } else {
-                    alcoholcount++;
-                }
-            }
+
             if (cart.get(i).getClass().toString().equals(FrozenFood.class.toString())) {
                 frozencount++;
             }
@@ -174,11 +164,28 @@ public class Cart {
         return dairyProducts.size();
     }
 
+    int parseMeatProducts(List<Product> cart) {
+        ArrayList<Product> dairyProducts = new ArrayList<>();
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).getClass().toString().equals(main.java.Meat.class.toString())) {
+                dairyProducts.add(cart.get(i));
+            }
+        }
+        return dairyProducts.size();
+    }
+
     int parseAlcoholProducts(List<Product> cart) {
         ArrayList<Product> alcoholProducts = new ArrayList<>();
         for (int i = 0; i < cart.size(); i++) {
             if (cart.get(i).getClass().toString().equals(Alcohol.class.toString())) {
                 alcoholProducts.add(cart.get(i));
+            }
+        }
+        if (userAge < 21 && alcoholProducts.size() > 0){
+            try {
+                throw new main.java.UnderAgeException("The user is not of age to buy alcohol");
+            } catch (main.java.UnderAgeException e) {
+                e.printStackTrace();
             }
         }
         return alcoholProducts.size();
